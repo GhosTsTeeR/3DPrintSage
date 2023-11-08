@@ -48,7 +48,7 @@ export default function ActivityEdit({ position, courseInfo, setCourseInfo }) {
       options: updateQuestion.options,
       respuesta: "",
     };
-  
+
     // Encuentra la posición actual en cursoInfo y agrega la nueva pregunta
     const updatedCourseInfo = courseInfo.map((info) => {
       if (info.position === position) {
@@ -59,12 +59,12 @@ export default function ActivityEdit({ position, courseInfo, setCourseInfo }) {
       }
       return info;
     });
-  
+
     setCourseInfo(updatedCourseInfo);
-  
+
     // Limpia el estado updateQuestion
     setUpdateQuestion({ question: "", options: [] });
-  
+
     // Cierra el modal
     setOpen(false);
   };
@@ -158,64 +158,65 @@ export default function ActivityEdit({ position, courseInfo, setCourseInfo }) {
   return (
     <div className={"GM__" + mode + "__main-createcurse-activity"}>
       <div className={"GM__" + mode + "__main-createcurse-activity-container"}>
-      {courseInfo
-        .filter((info) => info.position === position) // Filtra solo el info que coincida con currentPosition
-        .map((info, infoIndex) => (
-          <div key={info.id}>
-            {info.dataActivity &&
-              info.dataActivity.map((activity, activityIndex) => (
-                <div key={activity.id}>
-                  <p>{activity.question}</p>
-                  <Delete onClick={() => handleDeleteQuestion(activity.id)} />
-                  <form>
-                    {activity.options.map((option, optionIndex) => (
-                      <label key={option.id}>
-                        <input
-                          type="radio"
-                          name={`question_${option.id}`}
-                          value={option.id}
-                          checked={option.activa}
-                          onClick={() =>
-                            handleQuestionChange(
-                              info.id,
-                              activity.id,
-                              option.id
-                            )
-                          }
-                        />
-                        {option.text}
-                        <br></br>
-                      </label>
-                    ))}
-                  </form>
-                  <FormControl fullWidth>
-                    <NativeSelect
-                      value={activity.respuesta.idOption || ""}
-                      onChange={(e) =>
-                        handleCorrectAnswerChange(
-                          activity.id,
-                          parseInt(e.target.value, 10)
-                        )
-                      }
-                      inputProps={{
-                        name: "correctAnswer",
-                        id: `correctAnswer_${activity.id}`,
-                      }}
-                    >
-                      <option value="">
-                        Selecciona una respuesta correcta
-                      </option>
-                      {activity.options.map((option) => (
-                        <option key={option.id} value={option.id}>
+        {courseInfo
+          .filter((info) => info.position === position) // Filtra solo el info que coincida con currentPosition
+          .map((info, infoIndex) => (
+            <div key={info.id}>
+              {info.dataActivity &&
+                info.dataActivity.map((activity, activityIndex) => (
+                  <div key={activity.id}>
+                    <p>{activity.question}</p>
+                    <Delete onClick={() => handleDeleteQuestion(activity.id)} />
+                    <form>
+                      {activity.options.map((option, optionIndex) => (
+                        <label key={option.id}>
+                          <input
+                            sx={{ margin: "10px" }}
+                            type="radio"
+                            name={`question_${option.id}`}
+                            value={option.id}
+                            checked={option.activa}
+                            onClick={() =>
+                              handleQuestionChange(
+                                info.id,
+                                activity.id,
+                                option.id
+                              )
+                            }
+                          />
                           {option.text}
-                        </option>
+                          <br></br>
+                        </label>
                       ))}
-                    </NativeSelect>
-                  </FormControl>
-                </div>
-              ))}
-          </div>
-        ))}
+                    </form>
+                    <FormControl fullWidth>
+                      <NativeSelect
+                        value={activity.respuesta.idOption || ""}
+                        onChange={(e) =>
+                          handleCorrectAnswerChange(
+                            activity.id,
+                            parseInt(e.target.value, 10)
+                          )
+                        }
+                        inputProps={{
+                          name: "correctAnswer",
+                          id: `correctAnswer_${activity.id}`,
+                        }}
+                      >
+                        <option value="">
+                          Selecciona una respuesta correcta
+                        </option>
+                        {activity.options.map((option) => (
+                          <option key={option.id} value={option.id}>
+                            {option.text}
+                          </option>
+                        ))}
+                      </NativeSelect>
+                    </FormControl>
+                  </div>
+                ))}
+            </div>
+          ))}
       </div>
       <div className={"GM__" + mode + "__main-createcurse-activity-footer"}>
         <Button variant="outlined" onClick={handleClickOpen}>
@@ -238,8 +239,9 @@ export default function ActivityEdit({ position, courseInfo, setCourseInfo }) {
                 updateQuestion.options.map((option, index) => (
                   <div key={option.id}>
                     <TextField
+                      sx={{ margin: "10px" }}
                       type="text"
-                      placeholder={option.text}
+                      placeholder="Escriba una repsuesta"
                       value={option.text}
                       onChange={(e) =>
                         handleAnswerChange(index, e.target.value)
@@ -248,7 +250,9 @@ export default function ActivityEdit({ position, courseInfo, setCourseInfo }) {
                   </div>
                 ))
               )}
-              <Button onClick={handleAddOption}>+</Button>
+              <Button sx={{ margin: "10px" }} onClick={handleAddOption}>
+                +
+              </Button>
             </DialogContentText>
           </DialogContent>
           <DialogActions>

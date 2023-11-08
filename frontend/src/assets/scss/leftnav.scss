@@ -105,6 +105,11 @@
                 border-radius: 10px 0 0 10px;
                 z-index: 3;
                 overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                & h6{
+                    margin: 15px;
+                }
             }
         }
     }

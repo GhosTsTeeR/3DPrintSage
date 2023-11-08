@@ -41,7 +41,7 @@ function CardWithCarousel({ cardData }) {
     return (
       <Card key={cardData.id} sx={{ maxWidth: 345 }} onDoubleClick={()=>handleDoubleClick(cardData.id)}>
         <CardActionArea variant="div">
-          <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+          <Box sx={{ maxWidth: 425, flexGrow: 1 ,  display: "flex", flexDirection: "column" }}>
             <AutoPlaySwipeableViews
               axis={theme.direction === "rtl" ? "x-reverse" : "x"}
               index={activeStep}

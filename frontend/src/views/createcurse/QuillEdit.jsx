@@ -1,3 +1,4 @@
+import'./image-resize.css'
 import React, { useState, useRef, useEffect } from "react";
 import Quill from "quill";
 import ReactQuill from "react-quill";
@@ -5,6 +6,8 @@ import "react-quill/dist/quill.snow.css";
 import ReactImageMagnify from "react-image-magnify";
 import ImageResize from "quill-image-resize-module--fix-imports-error";
 Quill.register("modules/imageResize", ImageResize);
+
+
 
 export default function QuillEditor({
   alignment,

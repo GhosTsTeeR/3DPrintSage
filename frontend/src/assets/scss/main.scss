@@ -162,7 +162,7 @@
                     }
                 }
                 &-content {
-                    padding-top: 10px;
+                    margin: 10px;
                     background: #e9e9e9;
                     height: 100%;
                     
@@ -177,10 +177,18 @@
                     }
                     &-footer {
                         height: 100px;
-                        background-color: #867e7e;
+                        background-color: #eccccc;
                         color: white;
                         border-radius: 20px;
-                    }
+                        display: flex;
+                        justify-content: center;
+                        align-content: center;
+                        flex-wrap: wrap;
+                        Button {
+                          width: 336px;
+                          height: 73px;
+                        }
+                      }
                 }
             }
         }

@@ -25,16 +25,15 @@ export default function ContentCurse({
       sections: null,
       dataActivity: [],
       dataQuill: "",
-      position: courseInfo.length + 1
+      position: courseInfo.length + 1,
     };
-    setCourseInfo((prevQuestion) => ([
-       ...prevQuestion, newOption
-    ]));
+    setCourseInfo((prevQuestion) => [...prevQuestion, newOption]);
   };
   const renderTextFieldOrButton = (info, index) => {
-    if (typeof info.position === 'number' && info.position === position) {
+    if (typeof info.position === "number" && info.position === position) {
       return (
         <TextField
+        sx={{ margin: "10px" }}
           key={info.id}
           fullWidth
           type="text"
@@ -46,6 +45,7 @@ export default function ContentCurse({
     } else {
       return (
         <Button
+          sx={{ margin: "10px" }}
           key={info.id}
           fullWidth
           onClick={() => setPosition(info.position)}
@@ -55,12 +55,12 @@ export default function ContentCurse({
       );
     }
   };
-  
-  
+
   const mode = "ModeLight";
   return (
     <nav className={"GM__" + mode + "__leftnav-print"}>
       <TextField
+        sx={{ margin: "10px" }}
         fullWidth
         type="text"
         placeholder={nameCurse || "Porfavor escriba un nombre"}
@@ -69,8 +69,9 @@ export default function ContentCurse({
       <h6>secciones del curso</h6>
       {courseInfo.map((info, index) => renderTextFieldOrButton(info, index))}
 
-      <Button onClick={handleAddSectionCurse}>+</Button>
+      <Button sx={{ margin: "10px" }} onClick={handleAddSectionCurse}>
+        +
+      </Button>
     </nav>
-
   );
 }
