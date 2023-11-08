@@ -3,9 +3,10 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { Button, CardActionArea } from '@mui/material';
+import { Link } from 'react-router-dom';
 const mode = "ModeLight";
-export default function CardCurse() {
+export default function CardCurse({name, id}) {
   return (
     <Card  sx={{backgroundColor: "light-gray",  width: "300px",  margin: "15px"}}>
       <CardActionArea className={"GM__" + mode + "__main-curses-cardcon-card"}>
@@ -17,11 +18,12 @@ export default function CardCurse() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            {name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            <Link to={"curso/"+id}>
+            <Button>Ver Curso</Button>
+            </Link>
           </Typography>
         </CardContent>
       </CardActionArea>

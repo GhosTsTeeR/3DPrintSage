@@ -82,8 +82,64 @@ def modify_data_user(uid, name, lastName, cellPhone, email, document, userName, 
 
     except Exception as e:
         print(f"Error al almacenar datos de usuario en Firebase: {e}")
-<<<<<<< HEAD
         return 500, e
-=======
+
+def add_data_curse(id, name, data):
+    try:
+        coleccion = 'curses'
+        coleccion_ref = db.collection(coleccion)
+
+        nuevo_documento_ref = coleccion_ref.document()
+
+        nuevo_documento_id = nuevo_documento_ref.id
+        
+        nuevo_documento_ref.set({
+            'id': nuevo_documento_id,
+            'idUsuario': id,
+            'name': name,
+            'data': data
+        })
+
+        return 200, nuevo_documento_id
+
+    except Exception as e:
+        print(f"Error al almacenar datos del curso en Firebase: {e}")
         return 500, e
->>>>>>> cc63330bef68b9a52ea79060aa778ee731ee52d4
+def data_all_curses():
+    try:
+        coleccion = 'curses'
+
+        # Consulta la colección completa de cursos
+        usuario_ref = db.collection(coleccion)
+        curses = usuario_ref.stream()
+
+        # Inicializa una lista para almacenar los datos de los cursos
+        data_curses = []
+
+        for curse in curses:
+            # Convierte cada curso a un diccionario y agrega a la lista
+            data_curses.append(curse.to_dict())
+
+        return 200, data_curses
+
+    except Exception as e:
+        print(f"Error al obtener datos de los cursos en Firebase: {e}")
+        return 500, None
+def data_curse(id):
+    try:
+        coleccion = 'curses'
+
+        # Consulta el documento con la UID proporcionada en la colección
+        curse_ref = db.collection(coleccion).document(id)
+        curse = curse_ref.get()
+
+        if curse.exists:
+            datos_usuario = curse.to_dict()
+            return 200, datos_usuario
+        else:
+            # Si el documento no existe, retorna un código de respuesta 404 o 401, dependiendo de tus necesidades
+            return 404, None
+
+    except Exception as e:
+        print(f"Error al obtener datos de usuario en Firebase: {e}")
+        return 500, None

@@ -27,7 +27,6 @@ import {
   NativeSelect,
 } from "@mui/material";
 import QuillEdit from "./QuillEdit";
-import ImageUploader from "./ImageUploader";
 import ActivityEdit from "./ActivityEdit";
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
@@ -89,8 +88,6 @@ export default function CreateCurse({
   };
   const addDataCurse = () => {
     const elementWithPosition = courseInfo.find((info) => info.position === position);
-
-  
     if (elementWithPosition) {
       if (stateSelection === "0") {
         const item = courseInfo.find(i => i.position === position);

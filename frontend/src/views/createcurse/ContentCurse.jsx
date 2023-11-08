@@ -1,3 +1,4 @@
+import { Delete } from "@mui/icons-material";
 import { Button, TextField } from "@mui/material";
 import React from "react";
 
@@ -8,6 +9,10 @@ export default function ContentCurse({
   setCourseInfo,
   nameCurse,
   setNameCurse,
+  text,
+  setText,
+  stateSelection,
+  handleAddyCurseToBD
 }) {
   const handleUpdateNameCurse = (e) => {
     setNameCurse(e.target.value);
@@ -19,6 +24,29 @@ export default function ContentCurse({
     setCourseInfo(updatedCourseInfo);
   };
   const handleAddSectionCurse = () => {
+    const elementWithPosition = courseInfo.find((info) => info.position === position);
+    if (elementWithPosition) {
+      if (stateSelection === "0") {
+        const item = courseInfo.find(i => i.position === position);
+        item.dataQuill = text
+        setCourseInfo(courseInfo);
+
+      } else {
+        console.log("no es necesario almacenar esto xd")
+      }
+  
+      // Actualiza el estado courseInfo con el elemento actualizado
+      setCourseInfo((prevCourseInfo) => {
+        return prevCourseInfo.map((info) => {
+          // Si la posición coincide, devuelve el elemento actualizado
+          if (info.position === position) {
+            return elementWithPosition;
+          }
+          // Si no, devuelve el elemento sin cambios
+          return info;
+        });
+      });
+    }
     const newOption = {
       id: courseInfo.length + 1,
       title: "Introduccion",
@@ -29,11 +57,23 @@ export default function ContentCurse({
     };
     setCourseInfo((prevQuestion) => [...prevQuestion, newOption]);
   };
+  const handleRenderBtn = (positionNow) => {
+    setText("")
+    setPosition(positionNow)
+  };
+  const handleOnClickRemoveItemCurse = (positionNow) => {
+    setPosition(0)
+    const updatedCourseInfo = courseInfo.filter((item) => item.position !== positionNow);
+    setCourseInfo(updatedCourseInfo);
+  };
+
   const renderTextFieldOrButton = (info, index) => {
+    
     if (typeof info.position === "number" && info.position === position) {
       return (
+        <div style={{ display: "flex", alignItems: "center" }}>
         <TextField
-        sx={{ margin: "10px", width:"282px" }}
+        sx={{ margin: "10px", width:"100%" }}
           key={info.id}
           fullWidth
           type="text"
@@ -41,6 +81,9 @@ export default function ContentCurse({
           value={info.title}
           onChange={(e) => handleUpdateTitleSectionCurse(e, info.id)}
         />
+        {info.position===0?"":<Delete onClick={()=>handleOnClickRemoveItemCurse(info.position)} />}
+        
+        </div>
       );
     } else {
       return (
@@ -48,7 +91,7 @@ export default function ContentCurse({
           sx={{ margin: "10px" }}
           key={info.id}
           fullWidth
-          onClick={() => setPosition(info.position)}
+          onClick={() => handleRenderBtn(info.position)}
         >
           {info.title}
         </Button>
@@ -59,6 +102,9 @@ export default function ContentCurse({
   const mode = "ModeLight";
   return (
     <nav className={"GM__" + mode + "__leftnav-print"}>
+      <Button sx={{ margin: "10px" }} onClick={handleAddyCurseToBD}>
+        Guardar En la BD
+      </Button>
       <TextField
         sx={{ margin: "10px", width:"282px" }}
         fullWidth

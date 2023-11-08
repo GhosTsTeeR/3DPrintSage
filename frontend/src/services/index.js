@@ -44,3 +44,42 @@ export async function ModifyDataUser(uderData, uid) {
         console.log(e);
     }
 }
+export async function addCurseToBD(name, data, uid) {
+    try {
+        const response = await axios({
+            url: `http://127.0.0.1:5000/add-curse-to-bd/${uid}`,
+            method: 'POST',
+            data: {name, data, uid},
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data;
+    } catch (e) {
+        console.log(e);
+    }
+}
+export async function getDataCurses(id) {
+    try {
+        const response = await axios.get(`http://127.0.0.1:5000/data-curse/${id}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data;
+    } catch (e) {
+        console.log(e);
+    }
+}
+export async function getDataCursesAll() {
+    try {
+        const response = await axios.get(`http://127.0.0.1:5000/data-curse-all`, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data;
+    } catch (e) {
+        console.log(e);
+    }
+}

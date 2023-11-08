@@ -21,7 +21,7 @@ export default function Header() {
       <ul>
         <li>
           <div className={"GM__"+mode+"__header-logo"}>
-            LOGO
+            3DPrintSage
           </div>
         </li>
         <li>

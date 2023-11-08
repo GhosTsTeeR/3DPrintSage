@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardPrinter from "./components/card/CardPrinter";
 import { Plagiarism } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import CardCurse from "./components/card/CardCurse";
+import { getDataCursesAll } from "../services";
 
 export default function Home() {
   const datosCard = [
@@ -172,6 +173,25 @@ export default function Home() {
         "La BCN3D Sigma R19 es una impresora 3D de doble extrusión que destaca por su calidad de impresión y fiabilidad. Es adecuada para usuarios que buscan impresiones detalladas.",
     },
   ];
+  const [dataCurses, setDataCurses] = useState([])
+  useEffect(() => {
+
+    const fetchData = async() => {
+  
+        try {
+          const response = await getDataCursesAll();
+          setDataCurses(response.data);
+        } catch(error) {
+          console.error(error);
+        }
+
+    }
+    
+    fetchData();
+  
+  }, []);
+
+
   const mode = "ModeLight";
   return (
     <div className={"GM__" + mode + "__main"}>
@@ -188,10 +208,9 @@ export default function Home() {
       </div>
       <div className={"GM__" + mode + "__main-curses"}>
         <div className={"GM__" + mode + "__main-curses-cardcon"}>
-          <CardCurse />
-          <CardCurse />
-          <CardCurse />
-          <CardCurse  />
+          {dataCurses.map((course, index) => (
+            <CardCurse key={course.id} name={course.name} id={course.id} />
+          ))}
         </div>
       </div>
       <div className={"GM__" + mode + "__main-verC"}>

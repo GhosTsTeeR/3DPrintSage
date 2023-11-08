@@ -15,8 +15,11 @@ import MainContainerCreateCurse from "../views/createcurse/MainContainerCreateCu
 import MainContentCreateCurse from "../views/createcurse/MainContentCreateCurse";
 import CreateCurse from "../views/createcurse/CreateCurse";
 import ContentCurse from "../views/createcurse/ContentCurse";
+import { addCurseToBD } from "../services";
+import { UserAuth } from "../hooks/auth/Auth.Provider";
 
 export default function RoutesAdmin() {
+  const { user } = UserAuth();
   const [text, setText] = useState("");
   const [nameCurse, setNameCurse] = useState("nombre del curso");
   const [selectedQuestion, setSelectedQuestion] = useState([
@@ -67,6 +70,14 @@ export default function RoutesAdmin() {
       position: 0,
     },
   ]);
+  const handleAddyCurseToBD = async () => {
+    try {
+      const datas = await addCurseToBD(nameCurse, courseInfo, user.uid);
+      console.log(datas);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <Routes>
       {/* Rutas para usuarios autenticados */}
@@ -123,6 +134,8 @@ export default function RoutesAdmin() {
               setNameCurse={setNameCurse}
               text={text}
               setText={setText}
+              stateSelection={stateSelection}
+              handleAddyCurseToBD={handleAddyCurseToBD}
             />
           </MainContainerCreateCurse>
         }

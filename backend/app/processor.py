@@ -1,5 +1,5 @@
 import nltk
-nltk.download('popular')
+#nltk.download('popular')
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 import pickle
@@ -71,8 +71,5 @@ def getResponse(ints, intents_json):
 def chatbot_response(msg):
     ints = predict_class(msg, model)
     res = getResponse(ints, nuevo_diccionario)
-<<<<<<< HEAD
     return res
-=======
-    return res
->>>>>>> cc63330bef68b9a52ea79060aa778ee731ee52d4
+
