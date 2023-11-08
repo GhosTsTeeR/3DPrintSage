@@ -1,0 +1,14 @@
+#.gitignore para Python
+pycache/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+*.pot
+*.log
+*.egg-info/
+dist/
+build/
+*.egg
+/myenv/

@@ -1,0 +1,43 @@
+.GM {
+    &__ModeLight {
+        &__guide {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 20px;
+            &-docs {
+                display: flex;
+                flex-direction: column;
+                &-dropdown {
+                    padding-left: 20px;
+                    background: rgb(255, 244, 244);
+                    margin-bottom: 0 0 10px 0;
+                }
+                &-btn {
+                    background: rgb(255, 244, 244);
+                    width: 100%;
+                    height: 40px;
+                    text-align: left;
+                    border-radius: 10px;
+                    margin-bottom: 10px;
+                    &-active {
+                        background: rgb(255, 244, 244);
+                        width: 100%;
+                        height: 40px;
+                        text-align: left;
+                        margin-bottom: 10px;
+                        border-radius: 10px 10px 0 0;
+                    }
+
+                }
+            }
+
+            &-practice {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                
+            }
+        }
+    }
+}

@@ -1,0 +1,236 @@
+{
+    "intents": [
+  
+      {
+        "tag": "greeting",
+        "patterns": [
+          "¡Hola!",
+          "Hola",
+          "Buenos días",
+          "¿Cómo estás?",
+          "¿Hay alguien allí?",
+          "¡Hola, buen día!"
+        ],
+        "responses": [
+          "¡Hola! :-)",
+          "Hola, gracias por visitarnos",
+          "Hola, ¿en qué puedo ayudarte?",
+          "¡Hola! ¿Cómo puedo ayudarte?"
+        ]
+      },
+      {
+        "tag": "greeting",
+        "patterns": [
+          "¡Hola!",
+          "Hola",
+          "Buenos días",
+          "¿Cómo estás?",
+          "¿Hay alguien allí?",
+          "¡Hola, buen día!"
+        ],
+        "responses": [
+          "¡Hola! :-)",
+          "Hola, gracias por visitarnos",
+          "Hola, ¿en qué puedo ayudarte?",
+          "¡Hola! ¿Cómo puedo ayudarte?"
+        ]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": ["Adiós", "Hasta luego", "Chau"],
+        "responses": [
+          "Hasta luego, gracias por visitarnos",
+          "Que tengas un buen día",
+          "¡Adiós! ¡Vuelve pronto!"
+        ]
+      },
+  
+      {
+        "tag": "thanks",
+        "patterns": ["Gracias", "Gracias por la ayuda", "Eso es útil", "¡Muchas gracias!"],
+        "responses": ["¡Feliz de poder ayudar!", "¡Siempre a tu servicio!", "Fue un placer ayudarte"]
+      },
+  
+      {
+        "tag": "printer_types",
+        "patterns": [
+          "¿Cuáles son los tipos de impresoras 3D?",
+          "Explícame los tipos de impresoras 3D",
+          "Dime acerca de las diferentes impresoras 3D"
+        ],
+        "responses": [
+          "Existen varios tipos de impresoras 3D, como FDM, SLA, SLS y más.",
+          "Los tipos de impresoras 3D incluyen FDM, SLA, SLS y otros.",
+          "Las impresoras 3D se dividen en categorías como FDM, SLA, SLS, etc."
+        ]
+      },
+  
+      {
+        "tag": "printer_problems",
+        "patterns": [
+          "¿Cuáles son los problemas comunes de las impresoras 3D?",
+          "Ayuda con problemas de impresora 3D",
+          "¿Cómo solucionar problemas con impresoras 3D?"
+        ],
+        "responses": [
+          "Los problemas comunes de las impresoras 3D incluyen atascos de filamento y problemas de nivelación de cama.",
+          "Puedes solucionar problemas de impresora 3D siguiendo pasos como recalibrar la impresora y verificar el filamento.",
+          "Si tienes problemas con tu impresora 3D, puedes intentar recalibrarla y verificar las conexiones."
+        ]
+      },
+  
+      {
+        "tag": "printer_operations",
+        "patterns": [
+          "¿Cómo funciona una impresora 3D?",
+          "Explícame el funcionamiento de una impresora 3D",
+          "¿Cómo imprimir en una impresora 3D?"
+        ],
+        "responses": [
+          "Una impresora 3D funciona depositando capas de material para crear un objeto tridimensional.",
+          "El funcionamiento de una impresora 3D implica la adición de capas de material para construir un objeto.",
+          "Para imprimir en una impresora 3D, necesitas un modelo 3D y configurar la impresora adecuadamente."
+        ]
+      },
+  
+      {
+        "tag": "3d_printing_materials",
+        "patterns": [
+          "¿Qué materiales se utilizan en la impresión 3D?",
+          "Háblame de los materiales para impresión 3D",
+          "¿Cuáles son los materiales más comunes en la impresión 3D?"
+        ],
+        "responses": [
+          "Los materiales comunes en la impresión 3D incluyen PLA, ABS, resina, nylon y más.",
+          "Para impresión 3D, se usan materiales como PLA, ABS, resina y otros.",
+          "La impresión 3D utiliza materiales como PLA, ABS y resina, según la aplicación."
+        ]
+      },
+      {
+        "tag": "3d_printers",
+        "patterns": [
+          "¿Cuál es la mejor impresora 3D?",
+          "Recomiéndame una impresora 3D",
+          "¿Qué impresora 3D es adecuada para principiantes?"
+        ],
+        "responses": [
+          "La mejor impresora 3D depende de tus necesidades, pero algunas populares incluyen la Prusa i3 y la Creality Ender 3.",
+          "Puedo recomendarte la Prusa i3 o la Creality Ender 3 según tu nivel de experiencia.",
+          "Para principiantes, la Creality Ender 3 es una buena opción de impresora 3D."
+        ]
+      },
+  
+      {
+        "tag": "3d_design_software",
+        "patterns": [
+          "¿Qué software se utiliza para diseñar modelos 3D?",
+          "Explícame los programas de diseño 3D",
+          "¿Cuál es el mejor software de modelado 3D?"
+        ],
+        "responses": [
+          "El software popular para diseño 3D incluye Blender, Tinkercad y Autodesk Fusion 360.",
+          "Para diseñar modelos 3D, puedes utilizar herramientas como Blender, Tinkercad o Autodesk Fusion 360.",
+          "El mejor software de modelado 3D depende de tus preferencias, pero opciones populares son Blender y Fusion 360."
+        ]
+      },
+  
+      {
+        "tag": "3d_printing_filaments",
+        "patterns": [
+          "¿Qué tipos de filamentos se utilizan en impresión 3D?",
+          "Háblame de los filamentos para impresión 3D",
+          "¿Cuál es el filamento más fuerte para impresión 3D?"
+        ],
+        "responses": [
+          "Los tipos de filamentos para impresión 3D incluyen PLA, ABS, PETG y filamentos flexibles.",
+          "Puedes usar filamentos como PLA, ABS, PETG o TPU en impresión 3D, dependiendo de tus necesidades.",
+          "El filamento más fuerte para impresión 3D puede ser el Nylon o el PETG, según la aplicación."
+        ]
+      },
+  
+      {
+        "tag": "3d_printing_quality",
+        "patterns": [
+          "¿Cómo mejorar la calidad de impresión 3D?",
+          "Consejos para obtener impresiones 3D de alta calidad",
+          "¿Cómo reducir las imperfecciones en impresiones 3D?"
+        ],
+        "responses": [
+          "Puedes mejorar la calidad de impresión 3D calibrando la impresora, utilizando soportes adecuados y ajustando la temperatura.",
+          "Para obtener impresiones 3D de alta calidad, es importante calibrar la impresora y utilizar configuraciones adecuadas.",
+          "Reducir imperfecciones en impresiones 3D se logra con una buena calibración, control de temperatura y ajustes de velocidad."
+        ]
+      },
+  
+      {
+        "tag": "3d_printing_safety",
+        "patterns": [
+          "¿Es seguro usar impresoras 3D en interiores?",
+          "Precauciones de seguridad para impresión 3D",
+          "¿Los vapores de impresión 3D son peligrosos?"
+        ],
+        "responses": [
+          "En general, las impresoras 3D son seguras en interiores, pero es importante ventilar adecuadamente y seguir las recomendaciones del fabricante.",
+          "Para usar impresoras 3D de forma segura, asegúrate de ventilar el área y seguir las precauciones del fabricante.",
+          "Los vapores de impresión 3D pueden ser tóxicos en altas concentraciones, así que es importante ventilar adecuadamente."
+        ]
+      },
+  
+      {
+        "tag": "3d_printing_cost",
+        "patterns": [
+          "¿Cuánto cuesta imprimir en 3D?",
+          "Costos de impresión 3D",
+          "¿Cuánto material se gasta en una impresión 3D?"
+        ],
+        "responses": [
+          "El costo de impresión 3D varía según el tamaño del objeto y el tipo de filamento, pero generalmente es asequible.",
+          "Los costos de impresión 3D dependen del tamaño del objeto y el filamento utilizado, pero por lo general son económicos.",
+          "La cantidad de material utilizada en una impresión 3D depende del modelo y la densidad, pero puede calcularse fácilmente."
+        ]
+      },
+  
+      {
+        "tag": "3d_printing_apps",
+        "patterns": [
+          "¿Existen aplicaciones para controlar impresoras 3D?",
+          "Apps para impresión 3D",
+          "Recomienda una aplicación para impresoras 3D"
+        ],
+        "responses": [
+          "Sí, hay aplicaciones para controlar impresoras 3D remotamente, como OctoPrint y PrusaPrint.",
+          "Puedes utilizar aplicaciones como OctoPrint o PrusaPrint para controlar tu impresora 3D desde tu dispositivo móvil.",
+          "Una buena opción de aplicación para impresoras 3D es OctoPrint, que permite controlar la impresora de manera remota."
+        ]
+      },
+  
+      {
+        "tag": "3d_printing_community",
+        "patterns": [
+          "¿Dónde puedo encontrar comunidades de impresión 3D?",
+          "Foros de impresión 3D",
+          "¿Hay grupos en línea para impresionistas 3D?"
+        ],
+        "responses": [
+          "Puedes encontrar comunidades de impresión 3D en línea en sitios web como Thingiverse y Reddit.",
+          "Los foros y grupos en línea de impresión 3D son populares en sitios como Thingiverse y Reddit.",
+          "Existen comunidades en línea activas para impresionistas 3D en sitios como Thingiverse y Reddit."
+        ]
+      },
+  
+      {
+        "tag": "3d_printing_beginner_tips",
+        "patterns": [
+          "Consejos para principiantes en impresión 3D",
+          "¿Qué debería saber un principiante en impresión 3D?",
+          "Consejos útiles para empezar con impresión 3D"
+        ],
+        "responses": [
+          "Para principiantes en impresión 3D, es importante aprender sobre la calibración de la impresora y experimentar con modelos simples.",
+          "Si eres nuevo en la impresión 3D, comienza con la calibración de la impresora y modelos sencillos para adquirir experiencia.",
+          "Los principiantes en impresión 3D pueden beneficiarse de aprender sobre la calibración y la elección de modelos adecuados."
+        ]
+      }
+  
+  ]
+}

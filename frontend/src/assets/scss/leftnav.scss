@@ -1,0 +1,111 @@
+.GM {
+    &__ModeLight {
+        &__leftnav {
+            background-color: rgb(255, 231, 231);
+            position: fixed;
+            width: 55px;
+            bottom: 20px;
+            top: 76px;
+            transition: width 0.5s;
+            border-radius: 0 10px 10px 0;
+            z-index: 3;
+            overflow: hidden;
+            
+            & ul {
+                list-style: none;
+                margin: 0;
+                padding: 10px 0 0 0;
+                width: 100%;
+                & li {
+                    position: relative;
+                    display: block;
+                    empty-cells: inherit;
+                    width: 100%;
+                    margin-bottom: 10px;
+                    text-decoration: none;
+                    &:hover {
+                        background-color: yellow;
+                    }
+                }
+            }
+            &-route {
+                display: flex;
+                align-items: center;
+                height: 30px;
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
+                &-icon {
+                    width: 30px;
+                    height: 30px;
+                    background: white;
+                    border-radius: 50%;
+                    align-items: center;
+                    text-align: center;
+                }
+                &-title {
+                    display: none;
+                }
+            }
+            &-all {
+                background-color: rgb(255, 231, 231);
+                position: fixed;
+                width: 300px;
+                bottom: 20px;
+                top: 76px;
+                transition: width 0.5s;
+                border-radius: 0 10px 10px 0;
+                z-index: 3;
+                overflow: hidden;
+                
+                & ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 10px 0 0 0;
+                    width: 100%;
+                    & li {
+                        position: relative;
+                        display: block;
+                        empty-cells: inherit;
+                        width: 100%;
+                        margin-bottom: 10px;
+                        text-decoration: none;
+                        &:hover {
+                            background-color: yellow;
+                        }
+                    }
+                }
+                &-route {
+                    display: flex;
+                    align-items: center;
+                    height: 30px;
+                    padding: 10px;
+                    border-bottom: 1px solid #ccc;
+                    &-icon {
+                        width: 30px;
+                        height: 30px;
+                        background: white;
+                        border-radius: 50%;
+                        align-items: center;
+                        text-align: center;
+                    }
+                    &-title {
+                        display: block;
+                    }
+                }
+            }
+            &-print {
+                right: 0;
+                background-color: rgb(255, 248, 248);
+                position: fixed;
+                width: 300px;
+                bottom: 20px;
+                top: 76px;
+                grid-column: 2;
+                transition: width 0.5s;
+                border-radius: 10px 0 0 10px;
+                z-index: 3;
+                overflow: hidden;
+            }
+        }
+    }
+}

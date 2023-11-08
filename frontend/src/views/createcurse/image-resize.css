@@ -1,0 +1,25 @@
+/* image-resize.css */
+.ql-image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ql-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .ql-image-resize-handler {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #007bff;
+    cursor: nwse-resize;
+    z-index: 2;
+  }
+  
+  .ql-image-resize-handler.active {
+    background-color: #0056b3;
+  }

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Chat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      font-family: Arial, sans-serif;
+    }
+    
+    .chat-container {
+      flex: 1;
+      overflow-y: scroll;
+      padding: 10px;
+    }
+    
+    .message {
+      margin-bottom: 10px;
+    }
+    
+    .message.sender {
+      text-align: right;
+      background-color: #c7edfc;
+    }
+    
+    .message.receiver {
+      text-align: left;
+      background-color: #f5f5f5;
+    }
+    
+    .message img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 5px;
+    }
+    
+    .input-container {
+      display: flex;
+      align-items: center;
+      background-color: #f5f5f5;
+      padding: 10px;
+    }
+    
+    .input-container input {
+      flex: 1;
+      margin-right: 10px;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    
+    .input-container button {
+      background-color: #c7edfc;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    {% for mensaje in mensajes %}
+      <div class="message {% if mensaje['emisor'] == 'Tú' %}sender{% else %}receiver{% endif %}">
+        <p>{{ mensaje['emisor'] }}</p>
+        <p>{{ mensaje['mensaje'] }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  </div>
+    <div class="input-container">
+      <input type="text" name="question" id="question" placeholder="Escribe un mensaje...">
+      <button class="fas fa-paper-plane" id="submit-button"></button>
+    </div>
+    <script src="/static/jquery.min.js" ></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <script>
+      jQuery(document).ready(function() {
+        $("#submit-button").click(function(e) {
+          e.preventDefault();
+          $.ajax({
+            type: "POST",
+            url: "/chatbot",
+            data: {
+              question: $("#question").val()
+            },
+            success: function(result) {
+              var message = "<div class='message sender'>";
+              message += "<p>" + $("#question").val() + "</p>";
+              message += "</div>";
+              message += "<div class='message receiver'>";
+              message += "<p>" + result.response + "</p>";
+              message += "</div>";
+              $("#question").val("");
+              $(".chat-container").append(message);
+            },
+            error: function(result) {
+              alert('error');
+            }
+          });
+        });
+      });
+    </script>
+</body>
+</html>

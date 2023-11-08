@@ -1,0 +1,25 @@
+.GM {
+    &__ModeLight {
+        &__step {
+            padding: 0 10px;
+            &-video {
+                padding: 10px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                & iframe {
+                    width: 800px;
+                    max-height: 400px ;
+                }
+            }
+            &-card {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+    }
+}
