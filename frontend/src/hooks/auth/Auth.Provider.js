@@ -5,7 +5,6 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signInWithRedirect,
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
@@ -18,20 +17,24 @@ const AuthProvider = (props) => {
   const [user, setUser] = useState(cachedUser || null);
   const [dataUser, setDataUser] = useState(cachedDataUser || null);
   useEffect(() => {
-    if (user) {
-      // Aquí hacemos la solicitud para obtener los datos del usuario
-      getDataUser(user.uid)
-        .then((response) => {
-          if (response.data) {
-            setDataUser(response.data);
-          } else {
-            console.log("No se encontraron datos de usuario");
-          }
-        })
-        .catch((error) => {
-          console.error("Error al obtener datos de usuario", error);
-        });
+
+    const fetchData = async() => {
+      if(user) {
+  
+        try {
+          const response = await getDataUser(user.uid);
+          localStorage.setItem('dataUser', JSON.stringify(response.data));
+          setDataUser(response.data);
+  
+        } catch(error) {
+          console.error(error);
+        }
+  
+      }
     }
+    
+    fetchData();
+  
   }, [user]);
   const { children } = props;
   const signUp = (user, password) => {
@@ -54,11 +57,13 @@ const AuthProvider = (props) => {
     signOut(auth);
     setUser();
     setDataUser();
+    localStorage.removeItem('user');
+    localStorage.removeItem('dataUser');
   };
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
-    //signInWithPopup(auth, provider);
-    signInWithRedirect(auth, provider)
+    signInWithPopup(auth, provider);
+    //signInWithRedirect(auth, provider)
   };
 
   useEffect(() => {
@@ -73,7 +78,7 @@ const AuthProvider = (props) => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [user]);
 
 
   return (
@@ -84,8 +89,9 @@ const AuthProvider = (props) => {
     </AuthContext.Provider>
   );
 };
-
-export default AuthProvider;
 export const UserAuth = () => {
   return useContext(AuthContext);
 };
+
+
+export default AuthProvider;

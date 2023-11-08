@@ -19,9 +19,6 @@ const LayoutProvider = (props) => {
         onShowHideleftNav,
         onModeNative,
     };
-    const signUp = (user, password) => {
-
-    }
     const [state, setState] =useReducer(LayoutReducer, initialState);
     return(
         <LayoutContext.Provider value={state}>
