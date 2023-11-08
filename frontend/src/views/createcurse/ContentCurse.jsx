@@ -33,7 +33,7 @@ export default function ContentCurse({
     if (typeof info.position === "number" && info.position === position) {
       return (
         <TextField
-        sx={{ margin: "10px" }}
+        sx={{ margin: "10px", width:"282px" }}
           key={info.id}
           fullWidth
           type="text"
@@ -60,7 +60,7 @@ export default function ContentCurse({
   return (
     <nav className={"GM__" + mode + "__leftnav-print"}>
       <TextField
-        sx={{ margin: "10px" }}
+        sx={{ margin: "10px", width:"282px" }}
         fullWidth
         type="text"
         placeholder={nameCurse || "Porfavor escriba un nombre"}
