@@ -18,7 +18,7 @@ google-api-core
 google-api-python-client
 google-auth
 google-auth-httplib2
-google-auth-oauthlib=
+google-auth-oauthlib
 google-cloud-core
 google-cloud-firestore
 google-cloud-storage
