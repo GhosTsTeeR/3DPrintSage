@@ -4,11 +4,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-
+const mode = "ModeLight";
 export default function CardCurse() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+    <Card  sx={{backgroundColor: "light-gray",  width: "300px",  margin: "15px"}}>
+      <CardActionArea className={"GM__" + mode + "__main-curses-cardcon-card"}>
         <CardMedia
           component="img"
           height="140"
@@ -26,5 +26,7 @@ export default function CardCurse() {
         </CardContent>
       </CardActionArea>
     </Card>
+    
+    
   );
 }
