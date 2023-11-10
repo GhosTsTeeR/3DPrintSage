@@ -47,7 +47,7 @@ export async function ModifyDataUser(uderData, uid) {
 export async function addCurseToBD(name, data, uid) {
     try {
         const response = await axios({
-            url: `http://127.0.0.1:5000/add-curse-to-bd/${uid}`,
+            url: `https://api3dprintsage.onrender.com/add-curse-to-bd/${uid}`,
             method: 'POST',
             data: {name, data, uid},
             headers: {
@@ -61,7 +61,7 @@ export async function addCurseToBD(name, data, uid) {
 }
 export async function getDataCurses(id) {
     try {
-        const response = await axios.get(`http://127.0.0.1:5000/data-curse/${id}`, {
+        const response = await axios.get(`https://api3dprintsage.onrender.com/data-curse/${id}`, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -70,10 +70,13 @@ export async function getDataCurses(id) {
     } catch (e) {
         console.log(e);
     }
+
+
+
 }
 export async function getDataCursesAll() {
     try {
-        const response = await axios.get(`http://127.0.0.1:5000/data-curse-all`, {
+        const response = await axios.get(`https://api3dprintsage.onrender.com/data-curse-all`, {
             headers: {
                 'Content-Type': 'application/json'
             }
