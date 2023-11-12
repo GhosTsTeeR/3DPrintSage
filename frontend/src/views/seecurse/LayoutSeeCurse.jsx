@@ -27,7 +27,6 @@ export default function LayoutSeeCurse() {
   ]);
   const [position, setPosition] = useState(0);
   const [courseInfo, setCourseInfo] = useState([]);
-  console.log(courseInfo);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -53,7 +52,11 @@ export default function LayoutSeeCurse() {
             setStateSelection={setStateSelection}
         />
       </MainContentSeeCurse>
-      <SeeContentCurse />
+      <SeeContentCurse
+      position={position}
+      setPosition={setPosition}
+      courseInfo={courseInfo}
+      />
     </MainContainerSeeCurse>
   );
 }

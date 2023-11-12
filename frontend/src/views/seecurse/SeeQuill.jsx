@@ -3,14 +3,14 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // Importa los estilos de Quill
 
 export default function SeeQuill({ text, position, courseInfo }) {
-  console.log(courseInfo);
   const [item, setItem] = useState(null);
 
   useEffect(() => {
-    console.log("ejecucion del useEffect");
-    if (courseInfo) {
-      const currentItem = courseInfo.find((i) => i.position === position);
-      setItem(currentItem);
+    if (!Array.isArray(courseInfo.data) || courseInfo.data.length === 0) {
+      setItem("Cargando la posible información...");
+    } else {
+      const currentItem = courseInfo.data.find((i) => i.position === position);
+      setItem(currentItem || null);
     }
   }, [courseInfo, position]);
 
