@@ -69,5 +69,6 @@ tqdm
 typing_extensions
 uritemplate
 urllib3
+waitress
 Werkzeug
 wrapt
