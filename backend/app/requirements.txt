@@ -47,7 +47,7 @@ oauthlib
 opt-einsum
 packaging
 proto-plus
-protobuf
+protobuf==3.20.0
 pyasn1
 pyasn1-modules
 pycparser
