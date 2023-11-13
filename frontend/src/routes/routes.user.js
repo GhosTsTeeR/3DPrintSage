@@ -11,6 +11,7 @@ import MainContainerCurse from "../views/allcurses/MainContainerCurse";
 import MainContentCurse from "../views/allcurses/MainContentCurse";
 import AllCurses from "../views/allcurses/AllCurses";
 import SettingsCurses from "../views/allcurses/SettingsCurses";
+import RealizeCurse from "../views/realizecurse/LayoutSeeCurse";
 
 export default function RoutesUser() {
   return (
@@ -20,6 +21,12 @@ export default function RoutesUser() {
     <Route path="/guia-practica" element={<Guide />} />
     <Route path="/conceptos-basicos" element={<Home />} />
     <Route path="/perfil" element={<Profile />} />
+    <Route
+        path="/curso/:id"
+        element={
+          <RealizeCurse/>
+        }
+      />
     <Route
       path="/impresoras"
       element={
