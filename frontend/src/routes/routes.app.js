@@ -11,7 +11,7 @@ import MainContainerCurse from "../views/allcurses/MainContainerCurse";
 import MainContentCurse from "../views/allcurses/MainContentCurse";
 import SettingsCurses from "../views/allcurses/SettingsCurses";
 import LayoutSeeCurse from "../views/seecurse/LayoutSeeCurse";
-
+import Doing from "../views/search/Doing";
 export default function RoutesApp() {
 
   return (
@@ -21,6 +21,7 @@ export default function RoutesApp() {
       <Route path="/guia-practica" element={<Guide />} />
       <Route path="/conceptos-basicos" element={<Home />} />
       <Route path="/foro" element={<Home />} />
+      <Route path="/search" element={<Doing/>} />
       <Route
         path="/curso/:id"
         element={

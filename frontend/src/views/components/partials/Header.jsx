@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import useRedireccionar from './componets/useRedireccionar';
 import { CancelOutlined, SendOutlined} from '@mui/icons-material';
 import { Divider, InputAdornment, TextField } from '@mui/material';
 import Login from '../modal/LoginModal';
@@ -16,7 +17,14 @@ export default function Header() {
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
+  const handleRedirect = useRedireccionar();  
+
+  const handleSendClick = () => {
+    handleRedirect(inputValue);
+  }
+
   return (
+    
     <header className={"GM__"+mode+"__header"}>
       <ul>
         <li>
@@ -50,7 +58,10 @@ export default function Header() {
               onChange={handleChange}
             />
             <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-            <SendOutlined/>
+            <SendOutlined
+              sx={{cursor: "pointer"}}
+              onClick={handleSendClick}
+            />
           </div>
         </li>
         <li>

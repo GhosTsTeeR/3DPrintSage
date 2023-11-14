@@ -12,6 +12,8 @@ import MainContentCurse from "../views/allcurses/MainContentCurse";
 import AllCurses from "../views/allcurses/AllCurses";
 import SettingsCurses from "../views/allcurses/SettingsCurses";
 import RealizeCurse from "../views/realizecurse/LayoutSeeCurse";
+import Doing from "../views/search/Doing";
+ 
 
 export default function RoutesUser() {
   return (
@@ -21,6 +23,7 @@ export default function RoutesUser() {
     <Route path="/guia-practica" element={<Guide />} />
     <Route path="/conceptos-basicos" element={<Home />} />
     <Route path="/perfil" element={<Profile />} />
+    <Route path="/search" element={<Doing/>} />
     <Route
         path="/curso/:id"
         element={

@@ -6,6 +6,7 @@ import Header from "../views/components/partials/Header";
 import LefNav from "../views/components/partials/LefNav";
 import ChatBot from "../views/components/chatbot/ChatBot";
 import RefreshIcon from '@mui/icons-material/Refresh';
+
 const LayoutProvider = React.lazy(() =>
   import("../hooks/layout/types/Layout.Provider")
 );

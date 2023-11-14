@@ -17,6 +17,7 @@ import CreateCurse from "../views/createcurse/CreateCurse";
 import ContentCurse from "../views/createcurse/ContentCurse";
 import { addCurseToBD } from "../services";
 import { UserAuth } from "../hooks/auth/Auth.Provider";
+import Doing from "../views/search/Doing";
 
 export default function RoutesAdmin() {
   const { user } = UserAuth();
@@ -85,6 +86,7 @@ export default function RoutesAdmin() {
       <Route path="/guia-practica" element={<Guide />} />
       <Route path="/conceptos-basicos" element={<Home />} />
       <Route path="/perfil" element={<ProfileAdmin />} />
+      <Route path="/search" element={<Doing/>} />
       <Route
         path="/impresoras"
         element={
