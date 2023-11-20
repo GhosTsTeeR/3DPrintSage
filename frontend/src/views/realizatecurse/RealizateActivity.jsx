@@ -2,7 +2,7 @@ import { Button, FormControl, NativeSelect } from "@mui/material";
 import React, { useState } from "react";
 import { UserAuth } from "../../hooks/auth/Auth.Provider";
 
-export default function SeeActivity({ position, courseInfo }) {
+export default function RealizateActivity({ position, courseInfo }) {
   const {openModalAuth, setOpenModalAuth} = UserAuth();
   const [curse, setCurse] = useState(courseInfo.data);
   const handleQuestionChange = (infoId, questionId, optionId) => {

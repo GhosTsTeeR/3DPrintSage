@@ -12,6 +12,7 @@ import { auth } from "../../config/firebase.config";
 import { getDataUser } from "../../services";
 
 const AuthProvider = (props) => {
+  const [openModalAuth, setOpenModalAuth] = useState(false)
   const cachedUser = JSON.parse(localStorage.getItem("user"));
   const cachedDataUser = JSON.parse(localStorage.getItem("dataUser"));
   const [user, setUser] = useState(cachedUser || null);
@@ -83,7 +84,7 @@ const AuthProvider = (props) => {
 
   return (
     <AuthContext.Provider
-      value={{ signUp, signIn, handleSignOut, user, googleSignIn, dataUser }}
+      value={{ signUp, signIn, handleSignOut, user, googleSignIn, dataUser, openModalAuth, setOpenModalAuth }}
     >
       {children}
     </AuthContext.Provider>
@@ -92,6 +93,5 @@ const AuthProvider = (props) => {
 export const UserAuth = () => {
   return useContext(AuthContext);
 };
-
 
 export default AuthProvider;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; 
 
-export default function SeeQuill({ text, position, courseInfo }) {
+export default function RealizateQuill({ text, position, courseInfo }) {
   const [item, setItem] = useState(null);
 
   useEffect(() => {

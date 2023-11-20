@@ -6,6 +6,7 @@ import Fade from '@mui/material/Fade';
 import {AccountCircle, Close} from '@mui/icons-material';
 import Typography from '@mui/material/Typography';
 import OptionLogin from '../auth/OptionLogin';
+import { UserAuth } from '../../../hooks/auth/Auth.Provider';
 
 const style = {
   position: 'absolute',
@@ -20,11 +21,11 @@ const style = {
 };
 
 export default function LoginModal() {
-  const [open, setOpen] = React.useState(false);
+  const { openModalAuth, setOpenModalAuth } = UserAuth();
   
   const mode =  "ModeLight"
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpenModalAuth(true);
+  const handleClose = () => setOpenModalAuth(false);
 
   return (
     <React.Fragment>
@@ -35,7 +36,7 @@ export default function LoginModal() {
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={open}
+        open={openModalAuth}
         onClose={handleClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
@@ -45,7 +46,7 @@ export default function LoginModal() {
           },
         }}
       >
-        <Fade in={open}>
+        <Fade in={openModalAuth}>
           <Box sx={style}>
             <OptionLogin/>
           </Box>

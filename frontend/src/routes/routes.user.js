@@ -11,6 +11,7 @@ import MainContainerCurse from "../views/allcurses/MainContainerCurse";
 import MainContentCurse from "../views/allcurses/MainContentCurse";
 import AllCurses from "../views/allcurses/AllCurses";
 import SettingsCurses from "../views/allcurses/SettingsCurses";
+import LayoutRealizateCurse from "../views/realizatecurse/LayoutRealizateCurse";
 
 export default function RoutesUser() {
   return (
@@ -31,6 +32,12 @@ export default function RoutesUser() {
         </MainContainerPrint>
       }
     />
+    <Route
+        path="/curso/:id"
+        element={
+          <LayoutRealizateCurse/>
+        }
+      />
     <Route
             path="/cursos"
             element={

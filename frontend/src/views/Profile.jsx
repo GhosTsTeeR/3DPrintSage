@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import { UserAuth } from "../hooks/auth/Auth.Provider";
 import { Link } from "react-router-dom";
-import { ModifyDataUser } from "../services";
+import { ModifyDataUser, getCurseInfoUser } from "../services";
 
 function getDisplayName(user, dataUser) {
   if (user) {
@@ -43,10 +43,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function Profile() {
   const [openModal, setOpenModal] = React.useState(false);
-  
+  const [curseInfo, setCurseInfo] = React.useState([])
   const { user, dataUser } = UserAuth();
   const [userData, setUserData] = React.useState({email: user.email, id:user.uid, name:"", lastName:"", document:"", userName:"",cellPhone:""});
-  console.log(userData);
+  console.log(curseInfo);
   const displayName = getDisplayName(user, dataUser);
   const [open, setOpen] = React.useState(false);
 
@@ -77,6 +77,19 @@ export default function Profile() {
       console.error(error);
     }
   };
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getCurseInfoUser(user.uid);
+        setCurseInfo(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const mode = "ModeLight";
   return (
     <div className={"GM__" + mode + "__main-profile"}>
@@ -118,9 +131,14 @@ export default function Profile() {
         <div className={"GM__" + mode + "__main-profile-panelH-curses"}>
           <h1>Mis cursos</h1>
           <ul>
-            <li>
-              <Send /> <span>Mi primer Curso</span>
-            </li>
+            {
+              curseInfo.map(objeto => (
+                <Link to={"/curso/"+objeto.datos.idCurse}>
+                  <li key={objeto.nombre_documento}>
+                    <Send /><span>{objeto.datos.nameCurse} {objeto.datos.stateCurse?"Finalizado":"en curso"}</span>
+                  </li>
+                </Link>
+              ))            }
             <Link to="/crear-curso">
               <li>
                 <Send /> <span>Ver cursos</span>

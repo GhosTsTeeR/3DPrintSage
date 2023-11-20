@@ -8,6 +8,7 @@ import {
 import React from "react";
 import SeeQuill from "./SeeQuill";
 import SeeActivity from "./SeeActivity";
+import { UserAuth } from "../../hooks/auth/Auth.Provider";
 
 export default function SeeCurse({
   text,
@@ -17,6 +18,7 @@ export default function SeeCurse({
   stateSelection,
   setStateSelection,
 }) {
+  const {openModalAuth, setOpenModalAuth} = UserAuth();
   const mode = "ModeLight";
   const handleChangeStateSelection = (event) => {
     const selectedId = event.target.value;
@@ -56,7 +58,7 @@ export default function SeeCurse({
               <div>Seccion de actividades </div>
             )}
           </li>
-          <Button>Realizar Este curso</Button>
+          <Button onClick={()=> setOpenModalAuth(!openModalAuth)}>Realizar Este curso</Button>
         </ul>
       </div>
       <div className={"GM__" + mode + "__main-createcurse-content"}>
