@@ -188,7 +188,10 @@ def add_data_curse_user(id, uid, name_curse):
         return 500, e
 
 def modify_data_curse_user(id, uid, position, estado):
+<<<<<<< HEAD
     print("estoy--", position, estado)
+=======
+>>>>>>> 42ab5b7c43b0126806a1eade33cef6c09a38f22e
     try:
         coleccion = 'my_curses'
         coleccion_ref = db.collection(coleccion)
@@ -261,7 +264,10 @@ def data_curse_info_user(uid):
         return 500, e
 
 def add_finalizate_curse_user(id, uid, state_curse):
+<<<<<<< HEAD
     print("datos----------", id,uid, state_curse )
+=======
+>>>>>>> 42ab5b7c43b0126806a1eade33cef6c09a38f22e
     try:
         coleccion = 'my_curses'
         coleccion_ref = db.collection(coleccion)
@@ -288,4 +294,8 @@ def add_finalizate_curse_user(id, uid, state_curse):
 
     except Exception as e:
         print(f"Error al modificar datos del curso en Firebase: {e}")
+<<<<<<< HEAD
         return 500, e
+=======
+        return 500, e
+>>>>>>> 42ab5b7c43b0126806a1eade33cef6c09a38f22e
