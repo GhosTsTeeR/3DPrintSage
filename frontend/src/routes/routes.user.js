@@ -14,6 +14,7 @@ import SettingsCurses from "../views/allcurses/SettingsCurses";
 import RealizeCurse from "../views/realizecurse/LayoutSeeCurse";
 import Doing from "../views/search/Doing";
  
+import LayoutRealizateCurse from "../views/realizatecurse/LayoutRealizateCurse";
 
 export default function RoutesUser() {
   return (
@@ -41,6 +42,12 @@ export default function RoutesUser() {
         </MainContainerPrint>
       }
     />
+    <Route
+        path="/curso/:id"
+        element={
+          <LayoutRealizateCurse/>
+        }
+      />
     <Route
             path="/cursos"
             element={
